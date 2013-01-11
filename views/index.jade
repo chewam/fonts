@@ -1,6 +1,14 @@
 extends layout
 
 block content
-    h1= title
-    p Welcome to #{title}
-    div#paper
+    div.container(ng:controller="LetterListCtrl")
+        div.navbar
+            div.navbar-inner(style="padding-left:4px")
+                button.btn(ng:click="onNewClick()") New
+        div(ng:repeat="letter in letters")
+            h3 {{letter.title}}
+            div.row-fluid
+                div.span9
+                    div(id="shape-{{$index + 1}}")
+                div.span3
+                    button.btn(ng:class="getCloseButtonCls(letter)", ng:click="onCloseClick(letter)") Close

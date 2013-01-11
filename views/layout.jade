@@ -1,9 +1,12 @@
 doctype 5
-html
-	head
-		title= title
-		link(rel='stylesheet', href='/css/style.css')
-		script(src="/js/raphael-min.js")
-		script(src="/js/index.js")
-	body
-		block content
+html(ng:app)
+    head
+        title= title
+        link(rel='stylesheet', href='/css/bootstrap.min.css')
+        script(src="/js/raphael-min.js")
+        script(src="/js/angular.min.js")
+        script(src="/js/controllers.js")
+        script(src="/js/shape.js")
+        script(src="/js/index.js")
+    body
+        block content
