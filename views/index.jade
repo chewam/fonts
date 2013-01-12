@@ -4,11 +4,18 @@ block content
     div.container(ng:controller="LetterListCtrl")
         div.navbar
             div.navbar-inner(style="padding-left:4px")
-                button.btn(ng:click="onNewClick()") New
+                button.btn(ng:click="onNewClick()") New letter
         div(ng:repeat="letter in letters")
-            h3 {{letter.title}}
             div.row-fluid
                 div.span9
-                    div(id="shape-{{$index + 1}}")
+                    h3 {{letter.title}}
+                    div(id="{{letter.id}}")
                 div.span3
-                    button.btn(ng:class="getCloseButtonCls(letter)", ng:click="onCloseClick(letter)") Close
+                    div(ng:repeat="shape in letter.shapes")
+                        h4.page-header Trace {{$index + 1}}
+                            div.pull-right
+                                button.btn.btn-mini(type="button", data-toggle="button", ng:click="toggleColor(shape)") Fill
+                                |&nbsp;
+                                button.btn.btn-mini(type="button", data-toggle="button", ng:click="toggleClose(shape)") Close
+                        div(ng:repeat="point in shape.points")
+                            div Point {{$index + 1}}: ({{point.attr('cx')}}, {{point.attr('cy')}})

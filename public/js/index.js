@@ -1,17 +1,12 @@
 var letters = [];
 
-var createLetter = function() {
+var createLetter = function($scope) {
     var l = letters.length;
 
-    letters.push({
-        title: 'Letter ' + (l + 1)
-    });
-
-    setTimeout(function() {
-        letters[l].shape = new Shape(l + 1);
-    }, 50);
+    letters.push(new Letter(l + 1, $scope));
+    // $scope.apply();
 };
 
-var closeLetter = function(letter) {
-    letter.shape.close();
-};
+// var closeLetter = function(letter) {
+//     letter.shape.close();
+// };

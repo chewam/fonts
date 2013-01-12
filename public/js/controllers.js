@@ -2,22 +2,14 @@ function LetterListCtrl($scope) {
     $scope.letters = letters;
 
     $scope.onNewClick = function() {
-        console.log('onNewClick', arguments);
-        createLetter();
+        createLetter($scope);
     };
 
-    $scope.onCloseClick = function(letter) {
-        closeLetter(letter);
+    $scope.toggleClose = function(shape) {
+        shape.toggleClose();
     };
 
-    $scope.getCloseButtonCls = function(letter) {
-    //  var cls = 'disabled';
-
-    //  if (letter.shape && letter.shape.points.length > 2) {
-    //      cls = '';
-    //  }
-    //  return cls;
-        return '';
-    }
-
+    $scope.toggleColor = function(shape) {
+        shape.toggleColor();
+    };
 }
